@@ -78,12 +78,21 @@ defmodule PentoWeb.Router do
     live_session :default, on_mount: PentoWeb.UserAuthLive do
       live "/guess", WrongLive
 
+      # Products
       live "/products", ProductLive.Index, :index
       live "/products/new", ProductLive.Index, :new
       live "/products/:id/edit", ProductLive.Index, :edit
 
       live "/products/:id", ProductLive.Show, :show
       live "/products/:id/show/edit", ProductLive.Show, :edit
+
+      # FAQs
+      live "/faqs", FAQLive.Index, :index
+      live "/faqs/new", FAQLive.Index, :new
+      live "/faqs/:id/edit", FAQLive.Index, :edit
+
+      live "/faqs/:id", FAQLive.Show, :show
+      live "/faqs/:id/show/edit", FAQLive.Show, :edit
     end
 
     get "/users/settings", UserSettingsController, :edit
